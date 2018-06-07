@@ -1,0 +1,21 @@
+{
+  "name": "full-stack-challenge",
+  "version": "1.0.0",
+  "description": "This is an interview challenge for Paytm Labs. Please feel free to fork. Pull Requests will be ignored.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikniknaks/full-stack-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikniknaks/full-stack-challenge/issues"
+  },
+  "homepage": "https://github.com/nikniknaks/full-stack-challenge#readme"
+}
