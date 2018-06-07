@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This is an interview challenge for Paytm Labs. Please feel free to fork. Pull Requests will be ignored.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.3",
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
