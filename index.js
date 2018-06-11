@@ -1,5 +1,8 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
+
+app.use(bodyParser.json())
 
 const MongoClient = require('mongodb').MongoClient
 
@@ -22,6 +25,16 @@ new Promise((resolve, reject) => {
 // middleware (express.js) i.e. functions that perform actions between the request and the response
 
 const defineMiddleWare = db => {
+  app.use('/employee/add',  (req, res, next) => {
+    const employees = db.collection('employees')
+    const response_doc = employees.insertOne({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      title: req.body.title,
+    }).then(v => {
+    })
+    res.send(response_doc)
+  })  
 }
 
 app.get('/', (req, res) => res.send('Full Stack Challenge'))
