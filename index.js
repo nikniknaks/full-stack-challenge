@@ -31,7 +31,6 @@ const defineMiddleWare = db => {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       title: req.body.title,
-    }).then(v => {
     })
     res.send(response_doc)
   })  
