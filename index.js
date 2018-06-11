@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 
+const MongoClient = require('mongodb').MongoClient
 app.get('/', (req, res) => res.send('Full Stack Challenge'))
 
 // employee routes/actions
