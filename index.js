@@ -33,6 +33,13 @@ const defineMiddleWare = db => {
       title: req.body.title,
     })
     res.send(response_doc)
+  })
+  app.use('/employees/', (req, res, next) => {
+    const employees = db.collection('employees')
+    const response_doc = employees.find({}).toArray((error, docs) => {
+    });
+    
+    res.send(response_doc)
   })  
 }
 
