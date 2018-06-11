@@ -4,7 +4,9 @@
   "description": "This is an interview challenge for Paytm Labs. Please feel free to fork. Pull Requests will be ignored.",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "mongodb": "^3.0.10"
   },
   "devDependencies": {},
   "scripts": {
