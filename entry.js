@@ -11,3 +11,8 @@ ReactDOM.render(
   element,
   document.getElementById('root')
 );
+import axios from 'axios'
+
+axios.get('/employees').then(response => {
+})
+
