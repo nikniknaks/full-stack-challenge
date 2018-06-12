@@ -3,14 +3,28 @@
   "version": "1.0.0",
   "description": "This is an interview challenge for Paytm Labs. Please feel free to fork. Pull Requests will be ignored.",
   "main": "index.js",
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "mongodb": "^3.0.10"
+    "mongodb": "^3.0.10",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
