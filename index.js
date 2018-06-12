@@ -1,8 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+
 const app = express()
 
 app.use(bodyParser.json())
+app.use(express.static('public'))
 
 const MongoClient = require('mongodb').MongoClient
 
@@ -42,8 +44,6 @@ const defineMiddleWare = db => {
     res.send(response_doc)
   })  
 }
-
-app.get('/', (req, res) => res.send('Full Stack Challenge'))
 
 // employee routes/actions
 
