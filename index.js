@@ -48,5 +48,21 @@ const defineMiddleWare = db => {
 
 app.get('/employees/')
 
+app.get('/employee/:employeeId')
+
 app.post('/employee/add')
+
+app.post('/employee/remove')
+
+app.post('/employee/update')
+
+// review routes/actions
+
+app.get('/review/')
+
+app.post('/review/add')
+
+app.post('/review/update')
+
+
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
