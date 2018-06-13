@@ -4,6 +4,7 @@ import EmployeeList from './employee_list.js'
 import axios from 'axios'
 
 export default class Employees extends React.Component {
+
 	constructor() {
 		super()
     this.addEmployee = this.addEmployee.bind(this)
@@ -13,13 +14,14 @@ export default class Employees extends React.Component {
     	employees: []
     }
 	}
+
 	componentDidMount() {
 	  this.getEmployees()
 	}
+
 	getEmployees() {
 		axios.get('/employees').then(response => {
 			this.setState({employees: response.data})
-			console.log('this.state.employees', this.state.employees)
 		})
 	}
 
@@ -39,6 +41,7 @@ export default class Employees extends React.Component {
 		});
 		event.preventDefault()
 	}
+
 	render() {
 		return (
 			<div>
