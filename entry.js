@@ -1,30 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import axios from 'axios'
+import Employees from './components/employees.js'
 
-axios.get('/employees').then(response => {
-	const element = (
-			<div>
-				<h1>Employees</h1>
-				<ul>{employees}</ul>
-				<div class="addEmployee">
-					<h2>Add Employee</h2>
-					<label for="firstName">First Name: </label>
-					<input name="firstName" type="text"/>
-					<label for="lastName">Last Name: </label>
-					<input name="lastName" type="text"/>
-					<label for="title">Title: </label>
-					<input name="title" type="text"/>
-					<button>Add</button>
-				</div>
-			</div>
-
-		)
-
-	ReactDOM.render(
-	  element,
-	  document.getElementById('root')
-	);
-})
+ReactDOM.render(
+  <Employees />,
+  document.getElementById('root')
+);
 
