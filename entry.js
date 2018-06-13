@@ -4,14 +4,6 @@ import ReactDOM from 'react-dom';
 import axios from 'axios'
 
 axios.get('/employees').then(response => {
-	const employees = response.data.map(employee => 
-		<li>
-			<div>{employee.last_name}, {employee.first_name}; {employee.title}</div>
-			<a>View Employee</a>
-			<a>View Review</a>
-
-		</li>
-	);
 	const element = (
 			<div>
 				<h1>Employees</h1>
