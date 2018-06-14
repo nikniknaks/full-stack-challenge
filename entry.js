@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Employees from './components/employees.js'
+import {
+  BrowserRouter,
+  Route,
+  Link
+} from 'react-router-dom'
+
+import AdminView from './components/admin_view.js'
 
 ReactDOM.render(
-  <Employees />,
+	(<BrowserRouter>
+    <AdminView />
+  </BrowserRouter>),
   document.getElementById('root')
 );
 
