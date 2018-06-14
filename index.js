@@ -7,6 +7,7 @@ app.use(bodyParser.json())
 app.use(express.static('public'))
 
 const MongoClient = require('mongodb').MongoClient
+const ObjectId = require('mongodb').ObjectID
 
 new Promise((resolve, reject) => {
   MongoClient.connect('mongodb://localhost:27017', (err, client) =>  {
@@ -38,7 +39,7 @@ const defineMiddleWare = db => {
   })
   app.use('/employees/', (req, res, next) => {
     const employees = db.collection('employees')
-    const response_doc = employees.find({}).toArray((error, docs) => {
+    employees.find({}).toArray((error, docs) => {
       res.send(docs)
     });
   })  
