@@ -12,6 +12,7 @@ export default class EmployeeList extends React.Component {
 					<div>{employee.last_name}, {employee.first_name}; {employee.title}</div>
 					<a>View Employee</a>
 					<a>View Review</a>
+					<a href={'employee/' + employee._id}>View/Edit Employee</a>
 				</li>
 			)
 		)

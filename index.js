@@ -42,7 +42,14 @@ const defineMiddleWare = db => {
     employees.find({}).toArray((error, docs) => {
       res.send(docs)
     });
-  })  
+  })
+  app.use('/employee/:employeeId', (req, res, next) => {
+    const employees = db.collection('employees')
+    const objectId = ObjectId(req.params.employeeId)
+    employees.findOne(objectId).then(doc => {
+      res.send(doc)
+    })
+  })
 }
 
 // employee routes/actions
