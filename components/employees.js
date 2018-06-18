@@ -35,9 +35,9 @@ export default class Employees extends React.Component {
       last_name: this.state.last_name,
       title: this.state.title,
 		}).then(v => {
-			this.getEmployees();
+			this.getEmployees()
 		}).catch(v => {
-			console.error(v);
+			console.error(v)
 		});
 		event.preventDefault()
 	}
