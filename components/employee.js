@@ -1,4 +1,5 @@
 import React from 'react'
+import Axios from 'axios'
 
 export default class Employee extends React.Component {
 
@@ -8,6 +9,12 @@ export default class Employee extends React.Component {
 			'id': props.match.params.id
 		}
 		this.getEmployee()
+	}
+
+	getEmployee() {
+		Axios.get('/api/employee/' + this.state.id).then(r => {
+			this.setState(r.data)
+		})
 	}
 
 	render() {
