@@ -15,8 +15,10 @@ export default class AdminView extends React.Component {
 
 	render() {
 		return (
-			<Route path="/" component={Employees} />
-			<Route path="/employee/" component={Employee} />
+			<div>
+				<Route path="/employee/:id" component={Employee} />
+				<Route path="/" component={Employees} />
+			</div>
 		)
 	}
 }
