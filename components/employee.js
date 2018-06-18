@@ -9,8 +9,7 @@ export default class Employee extends React.Component {
 	render({ match }) {
 		return (
 			<div>
-				hello
-			</div>
-			)
+		 </div>
+		)
 	}
 }
