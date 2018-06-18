@@ -28,7 +28,7 @@ new Promise((resolve, reject) => {
 // middleware (express.js) i.e. functions that perform actions between the request and the response
 
 const defineMiddleWare = db => {
-  app.use('/employee/add',  (req, res, next) => {
+  app.use('/api/employee/add',  (req, res, next) => {
     const employees = db.collection('employees')
     const response_doc = employees.insertOne({
       first_name: req.body.first_name,
@@ -37,13 +37,13 @@ const defineMiddleWare = db => {
     })
     res.send(response_doc)
   })
-  app.use('/employees/', (req, res, next) => {
+  app.use('/api/employees/', (req, res, next) => {
     const employees = db.collection('employees')
     employees.find({}).toArray((error, docs) => {
       res.send(docs)
     });
   })
-  app.use('/employee/:employeeId', (req, res, next) => {
+  app.use('/api/employee/:employeeId', (req, res, next) => {
     const employees = db.collection('employees')
     const objectId = ObjectId(req.params.employeeId)
     employees.findOne(objectId).then(doc => {
@@ -54,23 +54,23 @@ const defineMiddleWare = db => {
 
 // employee routes/actions
 
-app.get('/employees/')
+app.get('/api/employees/')
 
-app.get('/employee/:employeeId')
+app.get('/api/employee/:employeeId')
 
-app.post('/employee/add')
+app.post('/api/employee/add')
 
-app.post('/employee/remove')
+app.post('/api/employee/remove')
 
-app.post('/employee/update')
+app.post('/api/employee/update')
 
 // review routes/actions
 
-app.get('/review/')
+app.get('/api/review/')
 
-app.post('/review/add')
+app.post('/api/review/add')
 
-app.post('/review/update')
+app.post('/api/review/update')
 
 app.use(express.static(__dirname + '/public'))
 

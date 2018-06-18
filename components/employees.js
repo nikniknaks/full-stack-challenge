@@ -20,7 +20,7 @@ export default class Employees extends React.Component {
 	}
 
 	getEmployees() {
-		axios.get('/employees').then(response => {
+		axios.get('/api/employees').then(response => {
 			this.setState({employees: response.data})
 		})
 	}
@@ -30,7 +30,7 @@ export default class Employees extends React.Component {
 	}
 
 	addEmployee(event) {
-		axios.post('/employee/add', {
+		axios.post('/api/employee/add', {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       title: this.state.title,
