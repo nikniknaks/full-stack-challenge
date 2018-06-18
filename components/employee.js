@@ -14,6 +14,9 @@ export default class Employee extends React.Component {
 	getEmployee() {
 		Axios.get('/api/employee/' + this.state.id).then(r => {
 			this.setState(r.data)
+		})
+	}
+
 	writeReviewModeOn() {
 		this.setState({
 			'write_review_mode': true
@@ -26,6 +29,10 @@ export default class Employee extends React.Component {
 		})
 	}
 
+	submitReview() {
+		axios.post('/api/add_review', {
+			'employeeId': this.state.employeeId,
+			'copy': this.state.copy,
 		})
 	}
 
@@ -41,6 +48,9 @@ export default class Employee extends React.Component {
 			 <form>
 			 	<button onClick="writeReviewModeOn()">
 			 		Write Review
+			 	</button>
+			 	<button onClick="submitReview()">
+			 		Submit Review
 			 	</button>
 			 </form>
 		 </div>

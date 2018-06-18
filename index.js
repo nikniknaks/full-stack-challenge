@@ -50,6 +50,14 @@ const defineMiddleWare = db => {
       res.send(doc)
     })
   })
+  app.use('/api/review/add',  (req, res, next) => {
+    const reviews = db.collection('reviews')
+    const response_doc = reviews.insertOne({
+      employeeId: req.body.employeeId,
+      copy: req.body.copy,
+    })
+    res.send(response_doc)
+  })
 
   // employee routes/actions
 
