@@ -1,10 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 
 const app = express()
 
 app.use(bodyParser.json())
-app.use(express.static('public'))
 
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
@@ -72,5 +72,10 @@ app.post('/review/add')
 
 app.post('/review/update')
 
+app.use(express.static(__dirname + '/public'))
+
+app.get('*', function (request, response){
+    response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
