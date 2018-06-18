@@ -50,32 +50,32 @@ const defineMiddleWare = db => {
       res.send(doc)
     })
   })
+
+  // employee routes/actions
+
+  app.get('/api/employees/')
+
+  app.get('/api/employee/:employeeId')
+
+  app.post('/api/employee/add')
+
+  app.post('/api/employee/remove')
+
+  app.post('/api/employee/update')
+
+  // review routes/actions
+
+  app.get('/api/review/')
+
+  app.post('/api/review/add')
+
+  app.post('/api/review/update')
+
+  app.use(express.static(__dirname + '/public'))
+
+  app.get('*', function (request, response){
+      response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+  })
 }
-
-// employee routes/actions
-
-app.get('/api/employees/')
-
-app.get('/api/employee/:employeeId')
-
-app.post('/api/employee/add')
-
-app.post('/api/employee/remove')
-
-app.post('/api/employee/update')
-
-// review routes/actions
-
-app.get('/api/review/')
-
-app.post('/api/review/add')
-
-app.post('/api/review/update')
-
-app.use(express.static(__dirname + '/public'))
-
-app.get('*', function (request, response){
-    response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
