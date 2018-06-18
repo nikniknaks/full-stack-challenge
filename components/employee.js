@@ -10,7 +10,7 @@ export default class Employee extends React.Component {
 		this.getEmployee()
 	}
 
-	render({ match }) {
+	render() {
 		return (
 			<div>
 				<h1>
