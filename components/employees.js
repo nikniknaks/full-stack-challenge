@@ -1,5 +1,5 @@
 import React from 'react'
-import EmployeeList from './employee_list.js'
+import EmployeeList from '~/components/employee_list.js'
 
 import axios from 'axios'
 

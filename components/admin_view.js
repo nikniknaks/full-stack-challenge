@@ -1,6 +1,6 @@
 import React from 'react'
-import Employees from './employees.js'
-import Employee from './components/employee.js'
+import Employees from '~/components/employees.js'
+import Employee from '~/components/employee.js'
 
 import {
   BrowserRouter,
