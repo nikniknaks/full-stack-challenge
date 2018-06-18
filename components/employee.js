@@ -14,6 +14,18 @@ export default class Employee extends React.Component {
 	getEmployee() {
 		Axios.get('/api/employee/' + this.state.id).then(r => {
 			this.setState(r.data)
+	writeReviewModeOn() {
+		this.setState({
+			'write_review_mode': true
+		})
+	}
+
+	writeReviewModeOff() {
+		this.setState({
+			'write_review_mode': false
+		})
+	}
+
 		})
 	}
 
@@ -26,6 +38,11 @@ export default class Employee extends React.Component {
 				<h2>
 					Title: {this.state.title}
 				</h2>
+			 <form>
+			 	<button onClick="writeReviewModeOn()">
+			 		Write Review
+			 	</button>
+			 </form>
 		 </div>
 		)
 	}
