@@ -28,6 +28,7 @@ new Promise((resolve, reject) => {
 // middleware (express.js) i.e. functions that perform actions between the request and the response
 
 const defineMiddleWare = db => {
+
   app.use('/api/employee/add',  (req, res, next) => {
     const employees = db.collection('employees')
     const response_doc = employees.insertOne({
@@ -37,12 +38,24 @@ const defineMiddleWare = db => {
     })
     res.send(response_doc)
   })
+
   app.use('/api/employees/', (req, res, next) => {
     const employees = db.collection('employees')
     employees.find({}).toArray((error, docs) => {
       res.send(docs)
     });
   })
+
+  app.use('/api/employee/delete',  (req, res, next) => {
+    const employees = db.collection('employees')
+    const objectId = ObjectId(req.body.employeeId)
+    employees.deleteOne({
+      _id: objectId
+    }).then(doc => {
+      res.send(doc)
+    })
+  })
+
   app.use('/api/employee/:employeeId', (req, res, next) => {
     const employees = db.collection('employees')
     const objectId = ObjectId(req.params.employeeId)
@@ -50,6 +63,7 @@ const defineMiddleWare = db => {
       res.send(doc)
     })
   })
+
   app.use('/api/review/add',  (req, res, next) => {
     const reviews = db.collection('reviews')
     const response_doc = reviews.insertOne({
@@ -59,25 +73,34 @@ const defineMiddleWare = db => {
     res.send(response_doc)
   })
 
+  app.use('/api/review/:employeeId', (req, res, next) => {
+    const reviews = db.collection('reviews')
+    reviews.findOne({employeeId: req.params.employeeId}).then(doc => {
+      res.send(doc)
+    })
+  })
+
   // employee routes/actions
 
   app.get('/api/employees/')
 
-  app.get('/api/employee/:employeeId')
-
   app.post('/api/employee/add')
 
-  app.post('/api/employee/remove')
+  app.post('/api/employee/delete')
 
   app.post('/api/employee/update')
 
+  app.get('/api/employee/:employeeId')
+
   // review routes/actions
 
-  app.get('/api/review/')
+  app.get('/api/review/:employeeId')
 
   app.post('/api/review/add')
 
   app.post('/api/review/update')
+
+  app.post('/api/review/delete')
 
   app.use(express.static(__dirname + '/public'))
 
