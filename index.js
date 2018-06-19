@@ -80,6 +80,25 @@ const defineMiddleWare = db => {
     })
   })
 
+  app.use('/api/feedback_request/add', (req, res, next) => {
+    const requests = db.collection('requests')
+    const response_doc = requests.insertOne({
+      requested_employee_id: req.body.requested_employee_id,
+      subject_employee_id: req.body.subject_employee_id,
+    })
+    res.send(response_doc)
+  })
+
+  app.use('/api/feedback_request/index/:employeeId', (req, res, next) => {
+    const requests = db.collection('requests')
+    console.log()
+    requests.find({
+      subject_employee_id: req.params.employeeId,
+    }).toArray((error, docs) => {
+      res.send(docs)
+    });
+  })
+
   // employee routes/actions
 
   app.get('/api/employees/')
@@ -101,6 +120,10 @@ const defineMiddleWare = db => {
   app.post('/api/review/update')
 
   app.post('/api/review/delete')
+
+  app.post('/api/feedback_request/add')
+
+  app.post('/api/feedback_request/index/:employeeId')
 
   app.use(express.static(__dirname + '/public'))
 

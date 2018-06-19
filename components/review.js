@@ -24,6 +24,16 @@ export default class Reviews extends React.Component {
 		this.submitReview = this.submitReview.bind(this)
 	}
 
+	componentDidMount() {
+	  this.getFeedbackRequests()
+	}
+
+	getFeedbackRequests() {
+		Axios.get('/api/feedback_request/index/' + this.props.negateEmployeeId).then(response => {
+			console.log('getFeedbackRequests response: ', response)
+		})
+	}
+
 	handleChange(event) {
 		this.setState({
 			review: {
