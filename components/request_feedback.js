@@ -8,23 +8,26 @@ export default class RequestFeedback extends React.Component {
 	}
 
 	requestFeedback() {
-		console.log('requestFeedback')
-		console.log(this.props.employeeId, this.props.negateEmployeeId)
 		Axios.post('/api/feedback_request/add', {
-			requested_employee_id: this.props.employeeId,
+			requested_employee_id: this.props.subjectEmployeeId,
 			subject_employee_id: this.props.negateEmployeeId
+		}).then(r => {
+			this.render()
 		})
+	}
 
+	checkRequested() {
+		return this.props.feedbackRequests.find(v => v.requested_employee_id === this.props.subjectEmployeeId)
 	}
 
 	render() {
-		if (this.props.employeeId) {
+		if (this.checkRequested()) {
 			return (
-				<button onClick={this.requestFeedback}>Request Feedback</button>
+				<span>Feedback Requested</span>
 			)
 		} else {
 			return (
-				<span>Feedback Requested</span>
+				<button onClick={this.requestFeedback}>Request Feedback</button>
 			)
 		}
 	}

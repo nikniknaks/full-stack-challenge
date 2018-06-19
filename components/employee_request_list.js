@@ -6,6 +6,9 @@ export default class EmployeeRequestList extends React.Component {
 	constructor(props) {
 		super(props)
     this.getFeedbackRequests = this.getFeedbackRequests.bind(this)
+    this.state = {
+    	feedback_requests: []
+    }
 	}
 
 	componentDidMount() {
@@ -14,7 +17,9 @@ export default class EmployeeRequestList extends React.Component {
 
 	getFeedbackRequests() {
 		Axios.get('/api/feedback_request/index/' + this.props.negateEmployeeId).then(response => {
-			console.log('getFeedbackRequests response: ', response)
+			this.setState({
+				feedback_requests: response.data
+			})
 		})
 	}
 
@@ -27,7 +32,7 @@ export default class EmployeeRequestList extends React.Component {
 		const employeeItems = otherEmployees.map(employee => (
 				<li>
 					<div>{employee.last_name}, {employee.first_name}; {employee.title}</div>
-					<RequestFeedback employeeId={employee._id} negateEmployeeId={this.props.negateEmployeeId} />
+					<RequestFeedback feedbackRequests={this.state.feedback_requests} subjectEmployeeId={employee._id} negateEmployeeId={this.props.negateEmployeeId} />
 				</li>
 			)
 		)

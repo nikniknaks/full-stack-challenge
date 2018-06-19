@@ -70,7 +70,6 @@ export default class Reviews extends React.Component {
 
 	assignFeedbackRequest(event) {
 		event.preventDefault()
-
 	}
 
 	submitReview(event) {
