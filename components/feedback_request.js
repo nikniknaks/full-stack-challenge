@@ -1,6 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
-import EmployeeRequestList from '~/components/employee_request.js'
+import EmployeeRequestList from '~/components/employee_request_list.js'
 
 export default class Employee extends React.Component {
 	constructor(props) {
