@@ -71,7 +71,8 @@ export default class Employee extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<h1>Employee Profile</h1>
+				<h1 className="row">Employee Profile</h1>
+
 				<div className="row">
 					<h2 className="col">
 						Name: {this.state.last_name}, {this.state.first_name}

@@ -96,7 +96,7 @@ export default class Reviews extends React.Component {
 			)
 		} else {
 			return (
-				<div className="container">
+				<div>
 					<form>
 						<h3>Review</h3>
 					 	<p>{this.state.review.copy}</p>
