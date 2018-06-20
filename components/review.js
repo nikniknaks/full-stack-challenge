@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import Axios from 'axios'
 
 import {
   Link
@@ -44,7 +44,7 @@ export default class Reviews extends React.Component {
 	}
 
 	getReview() {
-		axios.get('/api/review/' + this.props.id).then(r => {
+		Axios.get('/api/review/' + this.props.id).then(r => {
 			this.setState({
 				review : {
 					employeeId: this.props.id,
@@ -75,7 +75,7 @@ export default class Reviews extends React.Component {
 	submitReview(event) {
 		event.preventDefault()
 		this.writeReviewModeOff(event)
-		axios.post('/api/review/add', this.state.review)
+		Axios.post('/api/review/add', this.state.review)
 	}
 
 	render() {
