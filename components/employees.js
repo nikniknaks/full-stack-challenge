@@ -47,9 +47,9 @@ export default class Employees extends React.Component {
 			<div className="container">
 				<h1>Employees</h1>
 				<EmployeeList employees={this.state.employees}/>
-				<div>
-					<h2 className="row">Add Employee</h2>
-					<form onSubmit={this.addEmployee} className="addEmployee">
+				<div className='container bg-light'>
+					<h2 className="container">Add Employee</h2>
+					<form onSubmit={this.addEmployee} className="container">
 						<div className="row">
 							<label className="col" for="first_name">First Name: </label>
 							<input className="col" name="first_name" type="text" value={this.state.value} onChange={this.handleChange}/>

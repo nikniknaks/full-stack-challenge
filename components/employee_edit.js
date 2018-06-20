@@ -15,7 +15,7 @@ export default class EmployeeEdit extends React.Component {
 	render() {
 		if (this.props.employeeEditMode === true) {
 				return (<form onSubmit={this.props.saveChanges} className="container">
-						<div className="row">
+						<div className="row my-3">
 							<div className="col">
 								<label for="first_name">First Name: </label>
 								<input type="text" name="first_name" value={this.state.value} onChange={this.props.handleChange} />
@@ -31,12 +31,12 @@ export default class EmployeeEdit extends React.Component {
 						</div>
 
 						<div className="row">
-							<button className="col-2 offset-1" type="submit" value="Submit">Save Changes</button>
+							<button className="col-2" type="submit" value="Submit">Save Changes</button>
 						</div>
 					</form>)
 		} else {
 			return (
-				<button onClick={this.props.setEmployeeEditMode}>Edit Employee Details</button>
+				<button className="col-3 my-3" onClick={this.props.setEmployeeEditMode}>Edit Employee Details</button>
 			)
 		}
 	}

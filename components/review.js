@@ -81,33 +81,34 @@ export default class Reviews extends React.Component {
 	render() {
 		let verb
 		if (this.state.review && this.state.review.copy && this.state.review.copy.length > 0) {
-	 		verb = <span>Edit</span>
+	 		verb = <span>Edit </span>
  		} else {
-	 		verb = <span>Write</span>
+	 		verb = <span>Write </span>
  		}
 
 		if (this.state.write_review_mode) {
 			return (
-				<form>
-					<h3>Review</h3>
-					<textarea name="copy" type="text" value={this.state.review.copy} onChange={this.handleChange}></textarea>
-				 	<button onClick={this.submitReview}>Submit Review</button>
-				</form>
+				<div className="container my-3 bg-light">
+					<form className="container">
+						<h2 className="row">Review</h2>
+						<textarea name="copy" type="text" value={this.state.review.copy} onChange={this.handleChange}></textarea>
+					 	<button className="row" onClick={this.submitReview}>Submit Review</button>
+					</form>
+			 	</div>
+
 			)
 		} else {
 			return (
-				<div>
-					<form>
-						<h3>Review</h3>
-					 	<p>{this.state.review.copy}</p>
-					 	<button onClick={this.writeReviewModeOn}>
+				<div className="container my-3 bg-light">
+					<form className="container">
+						<h2 className="row">Review</h2>
+					 	<p className="row">{this.state.review.copy}</p>
+					 	<button className="row" onClick={this.writeReviewModeOn}>
 					 		{verb}
 					 		<span> Review</span>
 					 	</button>
 					</form>
-				 	<Link to={'/feedback_request/' + this.props.id}>
-				 		Assign Feedback Request
-				 	</Link>
+				 	<Link to={'/feedback_request/' + this.props.id}>Assign Feedback Request</Link>
 			 	</div>
 			)
 		}

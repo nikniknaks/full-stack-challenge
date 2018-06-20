@@ -70,24 +70,22 @@ export default class Employee extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
-				<h1 className="row">Employee Profile</h1>
-
-				<div className="row">
-					<h2 className="col">
-						Name: {this.state.last_name}, {this.state.first_name}
-					</h2>
-					<h2 className="col">
-						Title: {this.state.title}
-					</h2>
+		<div className='container'>
+			<h1>Employee Profile</h1>
+			<div className='container my-3 bg-light'>
+				<h2>Personal Info</h2>
+				<div>
+					Name: {this.state.last_name}, {this.state.first_name}
 				</div>
-				<div className="row">
-					<EmployeeEdit handleChange={this.handleChange} saveChanges={this.saveChanges} setEmployeeEditMode={this.setEmployeeEditMode} employeeEditMode={this.state.employeeEditMode}/>
+				<div>
+					Title: {this.state.title}
 				</div>
-				<Review id={this.state.id}/>
-				<button onClick={this.deleteEmployee}>Remove Employee</button>
-				<Link to='/'>Back to Employees</Link>
+				<EmployeeEdit handleChange={this.handleChange} saveChanges={this.saveChanges} setEmployeeEditMode={this.setEmployeeEditMode} employeeEditMode={this.state.employeeEditMode}/>
 			</div>
+			<Review id={this.state.id}/>
+			<button className='row' onClick={this.deleteEmployee}>Remove Employee</button>
+			<Link className='row' to='/'>Back to Employees </Link>
+		</div>
 		)
 	}
 }
