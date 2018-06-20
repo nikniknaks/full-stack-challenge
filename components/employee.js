@@ -9,7 +9,11 @@ export default class Employee extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			'id': props.match.params.id
+			'id': props.match.params.id,
+			'first_name': '',
+			'last_name': '',
+			'title': '',
+			'employeeEditMode': false,
 		}
 		this.getEmployee()
     this.deleteEmployee = this.deleteEmployee.bind(this);
