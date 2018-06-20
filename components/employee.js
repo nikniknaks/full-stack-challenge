@@ -42,16 +42,19 @@ export default class Employee extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<Link to='/'>Back to Employees</Link>
-				<h1>
-					Name: {this.state.last_name}, {this.state.first_name}
-				</h1>
-				<h2>
-					Title: {this.state.title}
-				</h2>
+			<div className="container">
+				<h1>Employee Profile</h1>
+				<div className="row">
+					<h2 className="col">
+						Name: {this.state.last_name}, {this.state.first_name}
+					</h2>
+					<h2 className="col">
+						Title: {this.state.title}
+					</h2>
+				</div>
 				<Review id={this.state.id}/>
 				<button onClick={this.deleteEmployee}>Remove Employee</button>
+				<Link to='/'>Back to Employees</Link>
 		 </div>
 		)
 	}

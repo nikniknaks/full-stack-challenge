@@ -23,11 +23,13 @@ export default class RequestFeedback extends React.Component {
 	render() {
 		if (this.checkRequested()) {
 			return (
-				<span>Feedback Requested</span>
+				<span className="col text-success">Feedback Requested</span>
 			)
 		} else {
 			return (
-				<button onClick={this.requestFeedback}>Request Feedback</button>
+				<span className="col">
+					<button onClick={this.requestFeedback}>Request Feedback</button>
+				</span>
 			)
 		}
 	}

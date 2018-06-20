@@ -30,8 +30,9 @@ export default class EmployeeRequestList extends React.Component {
 		})
 
 		const employeeItems = otherEmployees.map(employee => (
-				<li>
-					<div>{employee.last_name}, {employee.first_name}; {employee.title}</div>
+				<li className="row">
+					<span className="col">{employee.last_name}, {employee.first_name};</span>
+					<span className="col">{employee.title}</span>
 					<RequestFeedback feedbackRequests={this.state.feedback_requests} subjectEmployeeId={employee._id} negateEmployeeId={this.props.negateEmployeeId} />
 				</li>
 			)

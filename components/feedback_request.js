@@ -20,8 +20,10 @@ export default class Employee extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<EmployeeRequestList negateEmployeeId={this.state.id} employees={this.state.employees}/>
+			<div className="container">
+				<h3>Requests for Performance Review Feedback</h3>
+				<EmployeeRequestList md={8} negateEmployeeId={this.state.id} employees={this.state.employees}/>
+				<Link to={"/employee/" + this.state.id} >Back to Employee Profile</Link>
 			</div>
 		)
 	}
