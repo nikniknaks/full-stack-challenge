@@ -96,17 +96,19 @@ export default class Reviews extends React.Component {
 			)
 		} else {
 			return (
-				<form>
-					<h3>Review</h3>
-				 	<button onClick={this.writeReviewModeOn}>
-				 		{verb}
-				 		<span> Review</span>
-				 	</button>
+				<div>
+					<form>
+						<h3>Review</h3>
+					 	<p>{this.state.review.copy}</p>
+					 	<button onClick={this.writeReviewModeOn}>
+					 		{verb}
+					 		<span> Review</span>
+					 	</button>
+					</form>
 				 	<Link to={'/feedback_request/' + this.props.id}>
 				 		Assign Feedback Request
 				 	</Link>
-				 	<p>{this.state.review.copy}</p>
-				</form>
+			 	</div>
 			)
 		}
 	}	
