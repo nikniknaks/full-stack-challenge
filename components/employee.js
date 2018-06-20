@@ -87,7 +87,7 @@ export default class Employee extends React.Component {
 				<Review id={this.state.id}/>
 				<button onClick={this.deleteEmployee}>Remove Employee</button>
 				<Link to='/'>Back to Employees</Link>
-		 </div>
+			</div>
 		)
 	}
 }
