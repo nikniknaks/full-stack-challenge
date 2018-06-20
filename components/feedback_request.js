@@ -2,6 +2,8 @@ import React from 'react'
 import Axios from 'axios'
 import EmployeeRequestList from '~/components/employee_request_list.js'
 
+import { Link } from 'react-router-dom'
+
 export default class Employee extends React.Component {
 	constructor(props) {
 		super(props)

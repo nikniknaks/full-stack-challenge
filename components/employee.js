@@ -3,9 +3,7 @@ import Axios from 'axios'
 
 import Review from '~/components/review.js'
 
-import {
-  Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class Employee extends React.Component {
 
