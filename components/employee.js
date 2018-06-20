@@ -18,6 +18,7 @@ export default class Employee extends React.Component {
 		this.getEmployee()
 
     this.deleteEmployee = this.deleteEmployee.bind(this)
+		this.handleChange = this.handleChange.bind(this)
 		this.saveChanges = this.saveChanges.bind(this)
     this.setEmployeeEditMode = this.setEmployeeEditMode.bind(this)
 	}
@@ -37,6 +38,10 @@ export default class Employee extends React.Component {
 			'employeeId': this.state.employeeId,
 			'copy': this.state.copy,
 		})
+	}
+
+	handleChange(event) {
+		this.setState({[event.target.name]: event.target.value})
 	}
 
 	saveChanges(event) {
