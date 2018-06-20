@@ -16,7 +16,8 @@ export default class Employee extends React.Component {
 			'employeeEditMode': false,
 		}
 		this.getEmployee()
-    this.deleteEmployee = this.deleteEmployee.bind(this);
+
+    this.deleteEmployee = this.deleteEmployee.bind(this)
 		this.saveChanges = this.saveChanges.bind(this)
 	}
 
