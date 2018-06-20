@@ -1,10 +1,9 @@
 import React from 'react'
 import Axios from 'axios'
 
-import Review from '~/components/review.js'
-
 import { Link } from 'react-router-dom'
 
+import Review from '~/components/review.js'
 export default class Employee extends React.Component {
 
 	constructor(props) {
