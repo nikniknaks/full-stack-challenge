@@ -44,19 +44,23 @@ export default class Employees extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<h1>Employees</h1>
 				<EmployeeList employees={this.state.employees}/>
-				<form onSubmit={this.addEmployee} class="addEmployee">
-					<h2>Add Employee</h2>
-					<label for="first_name">First Name: </label>
-					<input name="first_name" type="text" value={this.state.value} onChange={this.handleChange}/>
-					<label for="last_name">Last Name: </label>
-					<input name="last_name" type="text" value={this.state.value} onChange={this.handleChange}/>
-					<label for="title">Title: </label>
-					<input name="title" type="text" value={this.state.value} onChange={this.handleChange}/>
-					<button type="submit" value="Submit">Add</button>
-				</form>
+				<div >
+				<h2 className="row">Add Employee</h2>
+					<form onSubmit={this.addEmployee} className="addEmployee">
+						<div className="row">
+							<label className="col" for="first_name">First Name: </label>
+							<input className="col" name="first_name" type="text" value={this.state.value} onChange={this.handleChange}/>
+							<label className="col" for="last_name">Last Name: </label>
+							<input className="col" name="last_name" type="text" value={this.state.value} onChange={this.handleChange}/>
+							<label className="col" for="title">Title: </label>
+							<input className="col" name="title" type="text" value={this.state.value} onChange={this.handleChange}/>
+						</div>
+						<button className="row" type="submit" value="Submit">Add</button>
+					</form>
+				</div>
 			</div>
 		)
 	}
