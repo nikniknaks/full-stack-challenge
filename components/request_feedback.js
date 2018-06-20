@@ -12,7 +12,7 @@ export default class RequestFeedback extends React.Component {
 			requested_employee_id: this.props.subjectEmployeeId,
 			subject_employee_id: this.props.negateEmployeeId
 		}).then(r => {
-			this.render()
+			this.props.getFeedbackRequests()
 		})
 	}
 
