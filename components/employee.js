@@ -57,8 +57,8 @@ export default class Employee extends React.Component {
 		Axios.post('/api/employee/delete', {
 			employeeId: this.state.id,
 		}).then(response => {
-			this.getEmployee();
-		});
+			this.props.history.push('/') 
+		})
 	}
 
 	render() {
