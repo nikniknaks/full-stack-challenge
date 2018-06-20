@@ -19,12 +19,17 @@ export default class Employee extends React.Component {
 
     this.deleteEmployee = this.deleteEmployee.bind(this)
 		this.saveChanges = this.saveChanges.bind(this)
+    this.setEmployeeEditMode = this.setEmployeeEditMode.bind(this)
 	}
 
 	getEmployee() {
 		Axios.get('/api/employee/' + this.state.id).then(response => {
 			this.setState(response.data)
 		})
+	}
+
+	setEmployeeEditMode() {
+		this.setState({employeeEditMode: true})
 	}
 
 	submitReview() {
