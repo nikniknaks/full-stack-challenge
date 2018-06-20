@@ -4,6 +4,8 @@ import Axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import Review from '~/components/review.js'
+import EmployeeEdit from '~/components/employee_edit.js'
+
 export default class Employee extends React.Component {
 
 	constructor(props) {
@@ -77,6 +79,9 @@ export default class Employee extends React.Component {
 					<h2 className="col">
 						Title: {this.state.title}
 					</h2>
+				</div>
+				<div className="row">
+					<EmployeeEdit handleChange={this.handleChange} saveChanges={this.saveChanges} setEmployeeEditMode={this.setEmployeeEditMode} employeeEditMode={this.state.employeeEditMode}/>
 				</div>
 				<Review id={this.state.id}/>
 				<button onClick={this.deleteEmployee}>Remove Employee</button>
