@@ -39,6 +39,20 @@ const defineMiddleWare = db => {
     res.send(response_doc)
   })
 
+  app.use('/api/employee/update',  (req, res, next) => {
+    const employees = db.collection('employees')
+    const objectId = ObjectId(req.body.employeeId)
+    const response_doc = employees.update({
+      _id: objectId
+    },{
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      title: req.body.title,
+    }).then(response => {
+      res.send(response)
+    })
+  })
+
   app.use('/api/employees/', (req, res, next) => {
     const employees = db.collection('employees')
     employees.find({}).toArray((error, docs) => {
