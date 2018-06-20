@@ -17,6 +17,7 @@ export default class Employee extends React.Component {
 		}
 		this.getEmployee()
     this.deleteEmployee = this.deleteEmployee.bind(this);
+		this.saveChanges = this.saveChanges.bind(this)
 	}
 
 	getEmployee() {
@@ -30,6 +31,19 @@ export default class Employee extends React.Component {
 			'employeeId': this.state.employeeId,
 			'copy': this.state.copy,
 		})
+	}
+
+	saveChanges(event) {
+		Axios.post('/api/employee/update', {
+			employeeId: this.state.id,
+			first_name: this.state.first_name,
+			last_name: this.state.last_name,
+			title: this.state.title,
+			employeeEditMode: this.state.employeeEditMode,
+		}).then(response => {
+			this.setState({employeeEditMode: false})
+		});
+		event.preventDefault()
 	}
 
 	deleteEmployee(event) {
